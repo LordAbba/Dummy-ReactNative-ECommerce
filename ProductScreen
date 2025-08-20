@@ -1,0 +1,44 @@
+const ProductsScreen = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Products</Text>
+        <TouchableOpacity style={styles.searchButton}>
+          <Icon name="search" size={24} color="#666" />
+        </TouchableOpacity>
+      </View>
+      
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.filterSection}>
+          <TouchableOpacity style={styles.filterButton}>
+            <Text style={styles.filterText}>All Categories</Text>
+            <Icon name="keyboard-arrow-down" size={20} color="#666" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.filterButton}>
+            <Text style={styles.filterText}>Price Range</Text>
+            <Icon name="keyboard-arrow-down" size={20} color="#666" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Available Products</Text>
+          
+          {/* Mock Product Items */}
+          {[1, 2, 3, 4, 5].map((item) => (
+            <View key={item} style={styles.productCard}>
+              <View style={styles.productImage}></View>
+              <View style={styles.productInfo}>
+                <Text style={styles.productName}>MacBook Pro {item}4" - Sample Product</Text>
+                <Text style={styles.productPrice}>${(999 + item * 200).toLocaleString()}</Text>
+                <Text style={styles.productDescription}>High-performance laptop for professionals...</Text>
+                <TouchableOpacity style={styles.addToCartBtn}>
+                  <Text style={styles.addToCartText}>Add to Cart</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
