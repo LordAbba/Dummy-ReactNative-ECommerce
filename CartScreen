@@ -1,0 +1,54 @@
+const CartScreen = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Shopping Cart</Text>
+        <Text style={styles.cartBadge}>3 items</Text>
+      </View>
+      
+      <ScrollView style={styles.scrollView}>
+        {/* Mock Cart Items */}
+        {[1, 2, 3].map((item) => (
+          <View key={item} style={styles.cartItem}>
+            <View style={styles.cartItemImage}></View>
+            <View style={styles.cartItemInfo}>
+              <Text style={styles.cartItemName}>Product {item}</Text>
+              <Text style={styles.cartItemPrice}>${(299 * item).toLocaleString()}</Text>
+              <View style={styles.quantityControls}>
+                <TouchableOpacity style={styles.quantityBtn}>
+                  <Text style={styles.quantityBtnText}>-</Text>
+                </TouchableOpacity>
+                <Text style={styles.quantity}>1</Text>
+                <TouchableOpacity style={styles.quantityBtn}>
+                  <Text style={styles.quantityBtnText}>+</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <TouchableOpacity style={styles.removeBtn}>
+              <Icon name="delete" size={20} color="#ff4444" />
+            </TouchableOpacity>
+          </View>
+        ))}
+
+        <View style={styles.cartSummary}>
+          <View style={styles.summaryRow}>
+            <Text style={styles.summaryLabel}>Subtotal:</Text>
+            <Text style={styles.summaryValue}>$1,796</Text>
+          </View>
+          <View style={styles.summaryRow}>
+            <Text style={styles.summaryLabel}>Shipping:</Text>
+            <Text style={styles.summaryValue}>$50</Text>
+          </View>
+          <View style={[styles.summaryRow, styles.totalRow]}>
+            <Text style={styles.totalLabel}>Total:</Text>
+            <Text style={styles.totalValue}>$1,846</Text>
+          </View>
+        </View>
+
+        <TouchableOpacity style={styles.checkoutBtn}>
+          <Text style={styles.checkoutBtnText}>Proceed to Checkout</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
