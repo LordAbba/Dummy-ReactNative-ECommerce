@@ -1,0 +1,57 @@
+const ProfileScreen = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>My Profile</Text>
+        <TouchableOpacity style={styles.settingsBtn}>
+          <Icon name="settings" size={24} color="#666" />
+        </TouchableOpacity>
+      </View>
+      
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.profileHeader}>
+          <View style={styles.profileImage}></View>
+          <Text style={styles.profileName}>John Doe</Text>
+          <Text style={styles.profileEmail}>john.doe@example.com</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Account</Text>
+          
+          {[
+            { title: 'Order History', icon: 'history' },
+            { title: 'Wishlist', icon: 'favorite' },
+            { title: 'Addresses', icon: 'location-on' },
+            { title: 'Payment Methods', icon: 'payment' },
+          ].map((item, index) => (
+            <TouchableOpacity key={index} style={styles.menuItem}>
+              <Icon name={item.icon} size={24} color="#666" />
+              <Text style={styles.menuItemText}>{item.title}</Text>
+              <Icon name="chevron-right" size={24} color="#ccc" />
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Support</Text>
+          
+          {[
+            { title: 'Help Center', icon: 'help' },
+            { title: 'Contact Us', icon: 'mail' },
+            { title: 'Terms & Privacy', icon: 'description' },
+          ].map((item, index) => (
+            <TouchableOpacity key={index} style={styles.menuItem}>
+              <Icon name={item.icon} size={24} color="#666" />
+              <Text style={styles.menuItemText}>{item.title}</Text>
+              <Icon name="chevron-right" size={24} color="#ccc" />
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        <TouchableOpacity style={styles.logoutBtn}>
+          <Text style={styles.logoutBtnText}>Sign Out</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
