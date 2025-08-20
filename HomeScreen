@@ -1,0 +1,40 @@
+const HomeScreen = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.header}>
+          <Text style={styles.title}>TechMart</Text>
+          <Text style={styles.subtitle}>Computers & Accessories</Text>
+        </View>
+        
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Featured Categories</Text>
+          <View style={styles.categoryGrid}>
+            <View style={styles.categoryCard}>
+              <Text style={styles.categoryText}>Laptops</Text>
+            </View>
+            <View style={styles.categoryCard}>
+              <Text style={styles.categoryText}>Accessories</Text>
+            </View>
+            <View style={styles.categoryCard}>
+              <Text style={styles.categoryText}>Gaming</Text>
+            </View>
+            <View style={styles.categoryCard}>
+              <Text style={styles.categoryText}>Office</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Trending Products</Text>
+          <Text style={styles.placeholderText}>Product carousel will be here...</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Special Offers</Text>
+          <Text style={styles.placeholderText}>Promotional banners will be here...</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
